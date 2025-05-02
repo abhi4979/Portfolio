@@ -1,18 +1,22 @@
-import "./workcard.css"
-import React from 'react'
-import project1 from "../assets/project-management-5235092_1280.jpg"
-import project2 from "../assets/projects-5235095_1280.jpg"
-const workcard = () => {
-  return (
-    <div className="work-container">
-        <h1 className="project-heading">Projects</h1>
-        <div className="project-container">
-            <div className="project-card">
-                <img src={project1} alt="" />
-            </div>
-        </div>
-    </div>
-  )
-}
+import "./workcard.css";
+import React from 'react';
+import { NavLink } from "react-router-dom";
 
-export default workcard
+const WorkCard = (props) => {
+  return (
+    <div className="project-card">
+      <img src={props.imgsrc} alt="Project" />
+      <h2 className="project-title">{props.title}</h2>
+      <div className="project-details">
+        <p>{props.text}</p>
+      </div>
+      <div className="project-btn">
+        <NavLink to={props.view} className="btn">View</NavLink>
+        <NavLink to={props.source} className="btn">Source</NavLink>
+      </div>
+    </div>
+  );
+};
+
+
+export default WorkCard;
